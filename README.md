@@ -1,4 +1,4 @@
-# Cross-Vehicle Ego Speed Estimation from Dashcam Videos via SmartROI and Vehicle-Adversarial Learning
+# Vehicle-Invariant Ego-Speed Estimation from In-Vehicle Dashcam Videos
 
 [![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)](https://www.python.org/)
 [![PyTorch](https://img.shields.io/badge/PyTorch-2.1%2B-EE4C2C?logo=pytorch&logoColor=white)](https://pytorch.org/)
@@ -234,25 +234,6 @@ five LOVO holdouts, and their model tensors are identical to the archived
 experiment checkpoints. See [`checkpoints/README.md`](checkpoints/README.md)
 for provenance and SHA-256 checksums.
 
-## Publish to GitHub
-
-The release archive does not contain an existing `.git` directory. After
-extracting it, create a repository and push the complete project with:
-
-```bash
-cd EgoSpeed-SmartROI
-git init
-git add .
-git commit -m "Initial public release"
-git branch -M main
-git remote add origin https://github.com/USERNAME/EgoSpeed-SmartROI.git
-git push -u origin main
-```
-
-Each included checkpoint is approximately 27 MiB, below GitHub's 100 MiB
-per-file limit. Replace `USERNAME` and the dataset Google Drive placeholder
-before publishing.
-
 ## Reproducibility
 
 The exact hyperparameters are stored in [`configs/final.json`](configs/final.json).
@@ -269,7 +250,7 @@ tables and figures use `Carnival`.
 
 ```bibtex
 @article{kim2026egospeed,
-  title={Cross-Vehicle Ego Speed Estimation from Dashcam Videos via SmartROI and Vehicle-Adversarial Learning},
+  title={Vehicle-Invariant Ego-Speed Estimation from In-Vehicle Dashcam Videos},
   author={Kim, Jeonghyeon and Kim, Youngwon and Lee, Jun Seong},
   journal={IEEE Access},
   year={2026}
