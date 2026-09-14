@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+message: "If you use this code or dataset, please cite our paper."
+title: "EgoSpeed-SmartROI"
+type: software
+version: 0.1.0
+authors:
+  - family-names: Kim
+    given-names: Jeonghyeon
+  - family-names: Kim
+    given-names: Youngwon
+  - family-names: Lee
+    given-names: Jun Seong
+preferred-citation:
+  type: article
+  title: "Cross-Vehicle Ego Speed Estimation from Dashcam Videos via SmartROI and Vehicle-Adversarial Learning"
+  authors:
+    - family-names: Kim
+      given-names: Jeonghyeon
+    - family-names: Kim
+      given-names: Youngwon
+    - family-names: Lee
+      given-names: Jun Seong
+  journal: IEEE Access
+  year: 2026
