@@ -33,9 +33,9 @@ The proposed model reduces MAE by 27.0% and RMSE by 23.1% relative to FlexiNet.
 
 ## Qualitative Videos
 
-The following 15-second videos compare the ground-truth speed, FlexiNet
-prediction, and our prediction on unseen holdout vehicles. Click a thumbnail to
-play the corresponding MP4. Error colors are green (`<= 1 m/s`), yellow
+The following autoplay previews compare the ground-truth speed, FlexiNet
+prediction, and our prediction on unseen holdout vehicles. Click any preview to
+play the complete 15-second MP4. Error colors are green (`<= 1 m/s`), yellow
 (`1--2 m/s`), and red (`> 2 m/s`).
 
 These clips were selected to illustrate qualitative behavior and should not be
@@ -46,9 +46,9 @@ reported above and in the paper.
 
 <table>
   <tr>
-    <td align="center"><a href="assets/videos/avante_01.mp4"><img src="assets/posters/avante_01.jpg" width="100%" alt="Avante example 1"></a><br><b>Example 1</b><br><sub>FlexiNet MAE: 8.215 | Ours: 0.800 m/s</sub></td>
-    <td align="center"><a href="assets/videos/avante_02.mp4"><img src="assets/posters/avante_02.jpg" width="100%" alt="Avante example 2"></a><br><b>Example 2</b><br><sub>FlexiNet MAE: 9.072 | Ours: 1.671 m/s</sub></td>
-    <td align="center"><a href="assets/videos/avante_03.mp4"><img src="assets/posters/avante_03.jpg" width="100%" alt="Avante example 3"></a><br><b>Example 3</b><br><sub>FlexiNet MAE: 7.658 | Ours: 1.257 m/s</sub></td>
+    <td align="center"><a href="assets/videos/avante_01.mp4"><img src="assets/previews/avante_01.gif" width="100%" alt="Avante example 1"></a><br><b>Example 1</b><br><sub>FlexiNet MAE: 8.215 | Ours: 0.800 m/s</sub></td>
+    <td align="center"><a href="assets/videos/avante_02.mp4"><img src="assets/previews/avante_02.gif" width="100%" alt="Avante example 2"></a><br><b>Example 2</b><br><sub>FlexiNet MAE: 9.072 | Ours: 1.671 m/s</sub></td>
+    <td align="center"><a href="assets/videos/avante_03.mp4"><img src="assets/previews/avante_03.gif" width="100%" alt="Avante example 3"></a><br><b>Example 3</b><br><sub>FlexiNet MAE: 7.658 | Ours: 1.257 m/s</sub></td>
   </tr>
 </table>
 
@@ -56,9 +56,9 @@ reported above and in the paper.
 
 <table>
   <tr>
-    <td align="center"><a href="assets/videos/malibu_01.mp4"><img src="assets/posters/malibu_01.jpg" width="100%" alt="Malibu example 1"></a><br><b>Example 1</b><br><sub>FlexiNet MAE: 4.485 | Ours: 1.225 m/s</sub></td>
-    <td align="center"><a href="assets/videos/malibu_02.mp4"><img src="assets/posters/malibu_02.jpg" width="100%" alt="Malibu example 2"></a><br><b>Example 2</b><br><sub>FlexiNet MAE: 3.083 | Ours: 0.739 m/s</sub></td>
-    <td align="center"><a href="assets/videos/malibu_03.mp4"><img src="assets/posters/malibu_03.jpg" width="100%" alt="Malibu example 3"></a><br><b>Example 3</b><br><sub>FlexiNet MAE: 2.713 | Ours: 1.017 m/s</sub></td>
+    <td align="center"><a href="assets/videos/malibu_01.mp4"><img src="assets/previews/malibu_01.gif" width="100%" alt="Malibu example 1"></a><br><b>Example 1</b><br><sub>FlexiNet MAE: 4.485 | Ours: 1.225 m/s</sub></td>
+    <td align="center"><a href="assets/videos/malibu_02.mp4"><img src="assets/previews/malibu_02.gif" width="100%" alt="Malibu example 2"></a><br><b>Example 2</b><br><sub>FlexiNet MAE: 3.083 | Ours: 0.739 m/s</sub></td>
+    <td align="center"><a href="assets/videos/malibu_03.mp4"><img src="assets/previews/malibu_03.gif" width="100%" alt="Malibu example 3"></a><br><b>Example 3</b><br><sub>FlexiNet MAE: 2.713 | Ours: 1.017 m/s</sub></td>
   </tr>
 </table>
 
@@ -66,9 +66,9 @@ reported above and in the paper.
 
 <table>
   <tr>
-    <td align="center"><a href="assets/videos/sonata_01.mp4"><img src="assets/posters/sonata_01.jpg" width="100%" alt="Sonata example 1"></a><br><b>Example 1</b><br><sub>FlexiNet MAE: 5.203 | Ours: 0.869 m/s</sub></td>
-    <td align="center"><a href="assets/videos/sonata_02.mp4"><img src="assets/posters/sonata_02.jpg" width="100%" alt="Sonata example 2"></a><br><b>Example 2</b><br><sub>FlexiNet MAE: 3.993 | Ours: 1.061 m/s</sub></td>
-    <td align="center"><a href="assets/videos/sonata_03.mp4"><img src="assets/posters/sonata_03.jpg" width="100%" alt="Sonata example 3"></a><br><b>Example 3</b><br><sub>FlexiNet MAE: 3.259 | Ours: 1.155 m/s</sub></td>
+    <td align="center"><a href="assets/videos/sonata_01.mp4"><img src="assets/previews/sonata_01.gif" width="100%" alt="Sonata example 1"></a><br><b>Example 1</b><br><sub>FlexiNet MAE: 5.203 | Ours: 0.869 m/s</sub></td>
+    <td align="center"><a href="assets/videos/sonata_02.mp4"><img src="assets/previews/sonata_02.gif" width="100%" alt="Sonata example 2"></a><br><b>Example 2</b><br><sub>FlexiNet MAE: 3.993 | Ours: 1.061 m/s</sub></td>
+    <td align="center"><a href="assets/videos/sonata_03.mp4"><img src="assets/previews/sonata_03.gif" width="100%" alt="Sonata example 3"></a><br><b>Example 3</b><br><sub>FlexiNet MAE: 3.259 | Ours: 1.155 m/s</sub></td>
   </tr>
 </table>
 
@@ -76,9 +76,9 @@ reported above and in the paper.
 
 <table>
   <tr>
-    <td align="center"><a href="assets/videos/carnival_01.mp4"><img src="assets/posters/carnival_01.jpg" width="100%" alt="Carnival example 1"></a><br><b>Example 1</b><br><sub>FlexiNet MAE: 6.463 | Ours: 1.884 m/s</sub></td>
-    <td align="center"><a href="assets/videos/carnival_02.mp4"><img src="assets/posters/carnival_02.jpg" width="100%" alt="Carnival example 2"></a><br><b>Example 2</b><br><sub>FlexiNet MAE: 6.636 | Ours: 2.001 m/s</sub></td>
-    <td align="center"><a href="assets/videos/carnival_03.mp4"><img src="assets/posters/carnival_03.jpg" width="100%" alt="Carnival example 3"></a><br><b>Example 3</b><br><sub>FlexiNet MAE: 5.001 | Ours: 1.237 m/s</sub></td>
+    <td align="center"><a href="assets/videos/carnival_01.mp4"><img src="assets/previews/carnival_01.gif" width="100%" alt="Carnival example 1"></a><br><b>Example 1</b><br><sub>FlexiNet MAE: 6.463 | Ours: 1.884 m/s</sub></td>
+    <td align="center"><a href="assets/videos/carnival_02.mp4"><img src="assets/previews/carnival_02.gif" width="100%" alt="Carnival example 2"></a><br><b>Example 2</b><br><sub>FlexiNet MAE: 6.636 | Ours: 2.001 m/s</sub></td>
+    <td align="center"><a href="assets/videos/carnival_03.mp4"><img src="assets/previews/carnival_03.gif" width="100%" alt="Carnival example 3"></a><br><b>Example 3</b><br><sub>FlexiNet MAE: 5.001 | Ours: 1.237 m/s</sub></td>
   </tr>
 </table>
 
@@ -86,9 +86,9 @@ reported above and in the paper.
 
 <table>
   <tr>
-    <td align="center"><a href="assets/videos/xm3_01.mp4"><img src="assets/posters/xm3_01.jpg" width="100%" alt="XM3 example 1"></a><br><b>Example 1</b><br><sub>FlexiNet MAE: 2.686 | Ours: 1.420 m/s</sub></td>
-    <td align="center"><a href="assets/videos/xm3_02.mp4"><img src="assets/posters/xm3_02.jpg" width="100%" alt="XM3 example 2"></a><br><b>Example 2</b><br><sub>FlexiNet MAE: 1.974 | Ours: 1.334 m/s</sub></td>
-    <td align="center"><a href="assets/videos/xm3_03.mp4"><img src="assets/posters/xm3_03.jpg" width="100%" alt="XM3 example 3"></a><br><b>Example 3</b><br><sub>FlexiNet MAE: 1.604 | Ours: 0.904 m/s</sub></td>
+    <td align="center"><a href="assets/videos/xm3_01.mp4"><img src="assets/previews/xm3_01.gif" width="100%" alt="XM3 example 1"></a><br><b>Example 1</b><br><sub>FlexiNet MAE: 2.686 | Ours: 1.420 m/s</sub></td>
+    <td align="center"><a href="assets/videos/xm3_02.mp4"><img src="assets/previews/xm3_02.gif" width="100%" alt="XM3 example 2"></a><br><b>Example 2</b><br><sub>FlexiNet MAE: 1.974 | Ours: 1.334 m/s</sub></td>
+    <td align="center"><a href="assets/videos/xm3_03.mp4"><img src="assets/previews/xm3_03.gif" width="100%" alt="XM3 example 3"></a><br><b>Example 3</b><br><sub>FlexiNet MAE: 1.604 | Ours: 0.904 m/s</sub></td>
   </tr>
 </table>
 
@@ -142,7 +142,7 @@ version before running `pip install -e .`.
 EgoSpeed-SmartROI/
   checkpoints/             Five seed-42 LOVO pretrained models
   assets/videos/           Fifteen FlexiNet-vs-Ours comparison videos
-  assets/posters/          Video thumbnails used in this README
+  assets/previews/         Autoplay GIF previews used in this README
   configs/final.json       Final paper hyperparameters
   scripts/train_lovo.py    Training entry point
   scripts/evaluate.py      Evaluation entry point
