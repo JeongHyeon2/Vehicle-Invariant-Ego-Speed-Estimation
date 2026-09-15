@@ -2,7 +2,7 @@
 
 ## Public Releases
 
-Two separate downloads are recommended.
+Two separate `.tar.zst` downloads are provided.
 
 1. **Model-ready release**: resized grayscale frames, raw optical-flow rates,
    synchronized speed labels, split metadata, and precomputed SmartROI masks.
@@ -11,18 +11,48 @@ Two separate downloads are recommended.
    logs. This is useful for independent preprocessing and future research, but
    it is not read directly by the training script.
 
+The complete original-to-model-ready pipeline is documented in
+[`PREPROCESSING.md`](PREPROCESSING.md). With the standard sibling directory
+layout it can be run or resumed with
+`python scripts/preprocessing/build_model_ready.py --amp`.
+
+| Archive | Extracted root | Compressed size | SHA-256 |
+|---|---|---:|---|
+| `EgoSpeed_model_ready_48x86_20260914.tar.zst` | `EgoSpeedDataset/` | 2.041 GiB | `15DF1C3A09AFE28BB7CD1EA6F22F4C598B37ABADFD4FF2DEB6521F522B506CAE` |
+| `EgoSpeed_original_mp4_per_frame_csv_20260914.tar.zst` | `EgoSpeed_original_mp4_per_frame_csv_20260914/dataset/` | 22.966 GiB | `96AB406560C34516672E3F2C432DA5ED381BDD85C5AAF6CA158F7668874F91CC` |
+
+Extract both archives from the directory that contains the cloned repository:
+
+```bash
+tar --zstd -xf EgoSpeed_model_ready_48x86_20260914.tar.zst
+tar --zstd -xf EgoSpeed_original_mp4_per_frame_csv_20260914.tar.zst
+```
+
 ## Model-Ready Layout
 
 ```text
 EgoSpeedDataset/
   packed/
-    2025_..._AVANTE_..._sync/
+    avante_01/
       packed_depthnorm64.pt
     ...
   smartroi_masks/
-    2025_..._AVANTE_..._sync__smartroi_mask_u8.pt
+    avante_01__smartroi_mask_u8.pt
     ...
+  metadata/
+    holdout_splits.json
+    sequence_manifest.csv
+    release_metadata.json
 ```
+
+The 14 physical recordings use anonymized public names of the form
+`<vehicle_model>_<recording_number>`:
+
+- `avante_01` through `avante_05`
+- `malibu_01` through `malibu_04`
+- `sonata_01`
+- `carnival_01` through `carnival_03`
+- `xm3_01`
 
 The split file is versioned with the source code at
 `splits/holdout_splits.json`.
@@ -61,29 +91,28 @@ weighted average of the 13 synchronized frame speeds, with weights increasing
 from 1.0 to 2.0 toward the most recent frame. Training and validation clips use
 stride 10, and test clips use non-overlapping stride 13.
 
-## Measured Uncompressed Sizes
+## Release Sizes
 
-Sizes below use unique physical payloads rather than counting linked aliases
-more than once.
+Sizes below were measured from the finalized release directories and archives.
 
 | Release content | Size |
 |---|---:|
-| Original unique MP4 + OBD CSV files for publication | 23.098 GiB |
-| Current raw working directory, including duplicate/bad backup files | 26.141 GiB |
-| Existing 48 x 86 packs, including relative depth | 2.997 GiB |
-| Precomputed SmartROI masks | 0.375 GiB |
-| Existing model-ready bundle | 3.372 GiB |
-| Compact model-ready bundle without relative depth | about 2.623 GiB |
-| Grayscale + speed/index tensors only | about 0.750 GiB |
+| Original synchronized directory | 22.989 GiB |
+| Original synchronized `.tar.zst` | 22.966 GiB |
+| Model-ready directory | 2.623 GiB |
+| Model-ready `.tar.zst` | 2.041 GiB |
 
-The grayscale-only size is not sufficient to run the proposed model because
-the model also requires raw optical flow and SmartROI masks.
+The original archive compresses only slightly because H.264 MP4 is already a
+compressed format. The model-ready archive compresses more effectively because
+it contains tensor and mask payloads.
 
-The publication figure for the original release removes one exact duplicate
-Avante MP4/CSV pair and an obsolete backup copy. The retained and removed
-copies were checked by SHA-256 rather than filename or size alone.
+The original release contains 292,248 aligned 30 FPS frame/label pairs. The
+model-ready release contains 97,421 frames sampled at 10 FPS. Every released
+MP4 has exactly as many video frames as its corresponding per-frame CSV has
+rows; unlabeled video tails are not included.
 
-## Vehicle Name
+## Vehicle Names
 
-The legacy internal token `SUV` identifies the Kia Carnival recordings. Use
-`Carnival` in public descriptions, tables, and figures.
+All dataset paths and metadata use `carnival`. The code accepts the historical
+`SUV` class token only to remain compatible with the included pretrained
+checkpoint and its `holdout_suv` fold identifier.

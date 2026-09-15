@@ -12,7 +12,14 @@ from torch.nn import functional as F
 from torch.utils.data import Dataset
 
 
-VEHICLE_KEYS = ("AVANTE", "MALIBU", "SONATA", "SUV", "XM3")
+VEHICLE_ALIASES = {
+    "AVANTE": "AVANTE",
+    "MALIBU": "MALIBU",
+    "SONATA": "SONATA",
+    "CARNIVAL": "CARNIVAL",
+    "SUV": "CARNIVAL",  # Legacy checkpoint and experiment token.
+    "XM3": "XM3",
+}
 
 
 def _torch_load(path: Path, *, mmap: bool = False):
@@ -29,9 +36,9 @@ def load_splits(path: str | Path) -> dict:
 
 
 def extract_vehicle(sequence_name: str) -> str:
-    for token in sequence_name.split("_"):
-        if token in VEHICLE_KEYS:
-            return token
+    for token in sequence_name.upper().split("_"):
+        if token in VEHICLE_ALIASES:
+            return VEHICLE_ALIASES[token]
     raise ValueError(f"Cannot infer vehicle from sequence name: {sequence_name}")
 
 
@@ -74,7 +81,12 @@ class PackedEgoSpeedDataset(Dataset):
 
         self.data_root = Path(data_root)
         self.mask_root = Path(mask_root)
-        self.vehicle_map = dict(vehicle_map)
+        # Published sequences use CARNIVAL, while the released seed-42
+        # checkpoints may still store the historical SUV class key.
+        self.vehicle_map = {
+            VEHICLE_ALIASES.get(vehicle.upper(), vehicle.upper()): index
+            for vehicle, index in vehicle_map.items()
+        }
         self.pack_name = pack_name
         self.clip_length = int(clip_length)
         self.flow_rate_clip = float(flow_rate_clip)

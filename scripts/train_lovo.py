@@ -28,7 +28,7 @@ def parse_args():
     parser.add_argument("--config", default="configs/final.json")
     parser.add_argument(
         "--dataset-root",
-        help="Directory containing packed/ and smartroi_masks/",
+        help="Directory containing packed/ and smartroi_masks/ (auto-detected if omitted)",
     )
     parser.add_argument("--data-root")
     parser.add_argument("--mask-root")

@@ -23,11 +23,15 @@ from egospeed.metrics import regression_metrics
 
 def parse_args():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--checkpoint", required=True)
+    parser.add_argument(
+        "--checkpoint",
+        default="checkpoints/holdout_avante/best.pt",
+        help="Checkpoint to evaluate (default: included Avante holdout)",
+    )
     parser.add_argument("--config", default="configs/final.json")
     parser.add_argument(
         "--dataset-root",
-        help="Directory containing packed/ and smartroi_masks/",
+        help="Directory containing packed/ and smartroi_masks/ (auto-detected if omitted)",
     )
     parser.add_argument("--data-root")
     parser.add_argument("--mask-root")
@@ -35,6 +39,11 @@ def parse_args():
     parser.add_argument("--holdout", default="")
     parser.add_argument("--output-dir", default="outputs/evaluation")
     parser.add_argument("--device", default="auto")
+    parser.add_argument(
+        "--dry-run",
+        action="store_true",
+        help="Load the checkpoint and run one batch without writing predictions",
+    )
     return parser.parse_args()
 
 
@@ -48,6 +57,7 @@ def evaluate_checkpoint(
     *,
     holdout="",
     device_name="auto",
+    dry_run=False,
 ):
     if device_name == "auto":
         device_name = "cuda" if torch.cuda.is_available() else "cpu"
@@ -84,6 +94,19 @@ def evaluate_checkpoint(
         num_workers=config["num_workers"],
         pin_memory=device.type == "cuda",
     )
+    if dry_run:
+        clip, speed, _vehicle_id, mask = next(iter(loader))
+        with torch.inference_mode():
+            prediction = model.predict_speed(clip.to(device), mask.to(device)).cpu()
+        return {
+            "status": "dry_run_ok",
+            "holdout": holdout,
+            "device": str(device),
+            "clip_shape": list(clip.shape),
+            "mask_shape": list(mask.shape),
+            "target_shape": list(speed.shape),
+            "prediction_shape": list(prediction.shape),
+        }
     ground_truth, prediction = predict(model, loader, device)
     metrics = regression_metrics(
         ground_truth,
@@ -126,6 +149,7 @@ def main():
         args.output_dir,
         holdout=args.holdout,
         device_name=args.device,
+        dry_run=args.dry_run,
     )
     print(json.dumps(metrics, indent=2))
 

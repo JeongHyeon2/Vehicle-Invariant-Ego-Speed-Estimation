@@ -1,5 +1,6 @@
 import tempfile
 import unittest
+from unittest.mock import patch
 from pathlib import Path
 
 import numpy as np
@@ -17,6 +18,16 @@ class ReleaseTests(unittest.TestCase):
         self.assertEqual(mask_root, Path("dataset/smartroi_masks"))
         with self.assertRaises(ValueError):
             resolve_dataset_roots("dataset", "packed", None)
+
+    def test_dataset_root_environment_discovery(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            (root / "packed").mkdir()
+            (root / "smartroi_masks").mkdir()
+            with patch.dict("os.environ", {"EGOSPEED_DATASET_ROOT": str(root)}):
+                data_root, mask_root = resolve_dataset_roots(None, None, None)
+            self.assertEqual(data_root, root / "packed")
+            self.assertEqual(mask_root, root / "smartroi_masks")
 
     def test_model_forward_shape(self):
         model = EgoSpeedSmartROI(num_vehicles=4).eval()
@@ -42,7 +53,7 @@ class ReleaseTests(unittest.TestCase):
     def test_packed_dataset_without_depth(self):
         with tempfile.TemporaryDirectory() as directory:
             tmp_path = Path(directory)
-            sequence = "2025_01_01_AVANTE_demo_0001_sync"
+            sequence = "avante_01"
             data_root = tmp_path / "packed"
             mask_root = tmp_path / "smartroi_masks"
             sequence_root = data_root / sequence
@@ -75,6 +86,12 @@ class ReleaseTests(unittest.TestCase):
             self.assertEqual(target.ndim, 0)
             self.assertEqual(vehicle_id.item(), 0)
             self.assertTrue(torch.all(mask == 1.0))
+
+    def test_legacy_suv_vehicle_map_accepts_public_carnival_name(self):
+        from egospeed.data import extract_vehicle
+
+        self.assertEqual(extract_vehicle("carnival_01"), "CARNIVAL")
+        self.assertEqual(extract_vehicle("2025_11_23_SUV_001_sync"), "CARNIVAL")
 
 
 if __name__ == "__main__":
