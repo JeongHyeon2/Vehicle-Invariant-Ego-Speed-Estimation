@@ -18,8 +18,8 @@ layout it can be run or resumed with
 
 | Archive | Extracted root | Compressed size | SHA-256 |
 |---|---|---:|---|
-| `EgoSpeed_model_ready_48x86_20260914.tar.zst` | `EgoSpeedDataset/` | 2.041 GiB | `15DF1C3A09AFE28BB7CD1EA6F22F4C598B37ABADFD4FF2DEB6521F522B506CAE` |
-| `EgoSpeed_original_mp4_per_frame_csv_20260914.tar.zst` | `EgoSpeed_original_mp4_per_frame_csv_20260914/dataset/` | 22.966 GiB | `96AB406560C34516672E3F2C432DA5ED381BDD85C5AAF6CA158F7668874F91CC` |
+| [`EgoSpeed_model_ready_48x86_20260914.tar.zst`](https://huggingface.co/datasets/Jeonghyeon3575/EgoSpeed-MultiVehicle/resolve/main/EgoSpeed_model_ready_48x86_20260914.tar.zst?download=true) | `EgoSpeedDataset/` | 2.041 GiB | `15DF1C3A09AFE28BB7CD1EA6F22F4C598B37ABADFD4FF2DEB6521F522B506CAE` |
+| [`EgoSpeed_original_mp4_per_frame_csv_20260914.tar.zst`](https://huggingface.co/datasets/Jeonghyeon3575/EgoSpeed-MultiVehicle/resolve/main/EgoSpeed_original_mp4_per_frame_csv_20260914.tar.zst?download=true) | `EgoSpeed_original_mp4_per_frame_csv_20260914/dataset/` | 22.966 GiB | `96AB406560C34516672E3F2C432DA5ED381BDD85C5AAF6CA158F7668874F91CC` |
 
 Extract both archives from the directory that contains the cloned repository:
 

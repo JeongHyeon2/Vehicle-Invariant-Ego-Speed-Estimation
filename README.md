@@ -3,6 +3,7 @@
 [![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)](https://www.python.org/)
 [![PyTorch](https://img.shields.io/badge/PyTorch-2.1%2B-EE4C2C?logo=pytorch&logoColor=white)](https://pytorch.org/)
 [![License](https://img.shields.io/badge/License-GPL--3.0-blue.svg)](LICENSE)
+[![Dataset](https://img.shields.io/badge/Dataset-Hugging%20Face-FFD21E)](https://huggingface.co/datasets/Jeonghyeon3575/EgoSpeed-MultiVehicle)
 
 **Jeonghyeon Kim, Youngwon Kim, and Jun Seong Lee**
 
@@ -146,13 +147,13 @@ archives:
 
 | Archive | Compressed size | Purpose |
 |---|---:|---|
-| `EgoSpeed_model_ready_48x86_20260914.tar.zst` | 2.041 GiB | Direct training and evaluation |
-| `EgoSpeed_original_mp4_per_frame_csv_20260914.tar.zst` | 22.966 GiB | Reproduce preprocessing from synchronized 1080p MP4/CSV pairs |
+| [`EgoSpeed_model_ready_48x86_20260914.tar.zst`](https://huggingface.co/datasets/Jeonghyeon3575/EgoSpeed-MultiVehicle/resolve/main/EgoSpeed_model_ready_48x86_20260914.tar.zst?download=true) | 2.041 GiB | Direct training and evaluation |
+| [`EgoSpeed_original_mp4_per_frame_csv_20260914.tar.zst`](https://huggingface.co/datasets/Jeonghyeon3575/EgoSpeed-MultiVehicle/resolve/main/EgoSpeed_original_mp4_per_frame_csv_20260914.tar.zst?download=true) | 22.966 GiB | Reproduce preprocessing from synchronized 1080p MP4/CSV pairs |
 
 The five seed-42 pretrained checkpoints are already included under
 `checkpoints/`. The dataset archives are not committed to Git because of their
-size. The public Zenodo, Hugging Face, or other data-record URLs will be added
-to this section when the dataset upload is published.
+size. Both archives are hosted on the
+[EgoSpeed Multi-Vehicle Hugging Face dataset page](https://huggingface.co/datasets/Jeonghyeon3575/EgoSpeed-MultiVehicle).
 
 Verify downloaded archives before extraction:
 
