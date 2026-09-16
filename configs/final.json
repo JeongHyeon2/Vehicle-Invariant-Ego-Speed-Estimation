@@ -7,7 +7,7 @@
   "target_weight_end": 2.0,
   "flow_rate_clip": 2.0,
   "min_train_speed_mps": 0.5,
-  "max_train_speed_mps": null,
+  "max_train_speed_mps": 20.0,
   "evaluation_min_speed_mps": 0.5,
   "evaluation_max_speed_mps": 20.0,
   "epochs": 100,

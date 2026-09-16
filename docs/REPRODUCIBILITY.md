@@ -44,8 +44,8 @@ For each fold, the listed source-vehicle train and validation sequences are
 combined and then split in temporal order. The first 80% is used for training,
 the final 20% for validation, with a one-clip guard interval between them.
 
-The archived final runs excluded targets below 0.5 m/s while constructing
-training clips and did not apply an upper speed cutoff during optimization.
-Paper metrics are computed only for `0.5 <= ground truth < 20 m/s`. This exact
-behavior is represented by `max_train_speed_mps: null` and
+The final runs used clips whose targets satisfied
+`0.5 <= ground truth < 20 m/s` for training, validation, and evaluation.
+This behavior is represented by `min_train_speed_mps: 0.5`,
+`max_train_speed_mps: 20.0`, `evaluation_min_speed_mps: 0.5`, and
 `evaluation_max_speed_mps: 20.0` in `configs/final.json`.
