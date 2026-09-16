@@ -5,7 +5,6 @@
 [![License](https://img.shields.io/badge/License-GPL--3.0-blue.svg)](LICENSE)
 [![Dataset](https://img.shields.io/badge/Dataset-Hugging%20Face-FFD21E)](https://huggingface.co/datasets/Jeonghyeon3575/EgoSpeed-MultiVehicle)
 
-**Jeonghyeon Kim, Youngwon Kim, and Jun Seong Lee**
 
 Official PyTorch implementation and qualitative results for our IEEE Access
 paper.
@@ -335,20 +334,4 @@ Dataset sequences use the public vehicle-model names `avante`, `malibu`,
 `sonata`, `carnival`, and `xm3`. The legacy fold identifier `holdout_suv` is
 retained only so the included Carnival checkpoint remains backward compatible.
 
-## Citation
 
-```bibtex
-@article{kim2026egospeed,
-  title={Vehicle-Invariant Ego-Speed Estimation from In-Vehicle Dashcam Videos},
-  author={Kim, Jeonghyeon and Kim, Youngwon and Lee, Jun Seong},
-  journal={IEEE Access},
-  year={2026}
-}
-```
-
-## Acknowledgment and License
-
-The backbone is adapted from
-[FlexiNet](https://github.com/Geekgineer/FlexiNet) by Ibrahim et al. This
-repository is distributed under the GNU General Public License v3.0. See
-[`LICENSE`](LICENSE) and [`THIRD_PARTY.md`](THIRD_PARTY.md).
