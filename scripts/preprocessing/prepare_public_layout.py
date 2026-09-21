@@ -7,7 +7,6 @@ import argparse
 import csv
 import json
 import os
-import re
 import shutil
 from pathlib import Path
 
@@ -29,24 +28,6 @@ PUBLIC_SEQUENCE_TO_RECORDING = {
     "malibu_04": "malibu_2",
     "sonata_01": "sonata_1",
     "xm3_01": "xm3_1",
-}
-
-# Kept so the script can also adapt archived internal split definitions.
-LEGACY_DRIVE_TO_RECORDING = {
-    "AVANTE_251022_indong_middle": "avante_1",
-    "AVANTE_251022_indong_school": "avante_2",
-    "AVANTE_251022_school_indong": "avante_3",
-    "AVANTE_251001_school_indong": "avante_4",
-    "AVANTE_251002_indong_school": "avante_5",
-    "SUV_251123_1": "carnival_1",
-    "SUV_251123_2": "carnival_2",
-    "SUV_251123_3": "carnival_3",
-    "MALIBU_251010_1": "malibu_1",
-    "MALIBU_251010_3": "malibu_2",
-    "MALIBU_251010_2": "malibu_3",
-    "MALIBU_KIDI_4": "malibu_4",
-    "SONATA_251103": "sonata_1",
-    "XM3_251103_minsoo": "xm3_1",
 }
 
 RAW_RECORDING_NAMES = set(PUBLIC_SEQUENCE_TO_RECORDING.values())
@@ -71,26 +52,16 @@ def parse_args() -> argparse.Namespace:
     return parser.parse_args()
 
 
-def sequence_to_drive(sequence: str) -> str:
-    without_date = re.sub(r"^\d{4}_\d{2}_\d{2}_", "", sequence)
-    return re.sub(r"_\d{4}_sync$", "", without_date)
-
-
 def recording_for_sequence(sequence: str) -> str:
     if sequence in PUBLIC_SEQUENCE_TO_RECORDING:
         return PUBLIC_SEQUENCE_TO_RECORDING[sequence]
     if sequence.lower() in RAW_RECORDING_NAMES:
         return sequence.lower()
-    drive = sequence_to_drive(sequence)
-    if drive in LEGACY_DRIVE_TO_RECORDING:
-        return LEGACY_DRIVE_TO_RECORDING[drive]
     raise RuntimeError(f"No public recording mapping for sequence: {sequence}")
 
 
 def image_group_for_sequence(sequence: str) -> str:
-    if sequence in PUBLIC_SEQUENCE_TO_RECORDING or sequence.lower() in RAW_RECORDING_NAMES:
-        return sequence
-    return sequence_to_drive(sequence)
+    return sequence
 
 
 def all_sequences(splits: dict) -> list[str]:

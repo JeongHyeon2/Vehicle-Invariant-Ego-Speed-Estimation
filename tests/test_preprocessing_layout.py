@@ -30,10 +30,5 @@ class PreprocessingLayoutTests(unittest.TestCase):
         self.assertEqual(recording_for_sequence("avante_1"), "avante_1")
         self.assertEqual(recording_for_sequence("carnival_3"), "carnival_3")
 
-    def test_legacy_alias_is_accepted(self):
-        alias = "2025_10_22_AVANTE_251022_indong_middle_0011_sync"
-        self.assertEqual(recording_for_sequence(alias), "avante_1")
-
-
 if __name__ == "__main__":
     unittest.main()
