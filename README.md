@@ -48,9 +48,8 @@ reported in m/s.
 
 ## Qualitative Videos
 
-<sub><i>Selection note: These videos were selected from cases with the largest
-observed prediction-error gaps between FlexiNet and Ours. They are qualitative
-examples and do not represent aggregate test performance.</i></sub>
+<sub><i>Cases with the largest observed prediction-error gaps between FlexiNet
+and Ours.</i></sub>
 
 The following autoplay previews compare the ground-truth speed, FlexiNet
 prediction, and our prediction on unseen holdout vehicles. Click any preview to
