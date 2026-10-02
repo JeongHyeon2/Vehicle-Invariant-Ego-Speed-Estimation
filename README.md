@@ -37,11 +37,14 @@ The public-dataset experiments used random seed 42, 100 training epochs with
 data augmentation, and the full speed range of each test set. MAE and RMSE are
 reported in m/s.
 
-| Training to evaluation | FlexiNet MAE | FlexiNet RMSE | Ours MAE | Ours RMSE | MAE reduction |
-|---|---:|---:|---:|---:|---:|
-| KITTI to KITTI | 0.845 | 1.258 | **0.759** | **1.111** | **10.2%** |
-| nuImages to nuImages | 0.623 | 0.911 | **0.413** | **0.617** | **33.6%** |
-| nuImages to KITTI | 3.763 | 4.687 | **1.413** | **1.980** | **62.4%** |
+| Training to evaluation | Model | MAE | RMSE | MAE reduction |
+|---|---|---:|---:|---:|
+| KITTI to KITTI | FlexiNet | 0.845 | 1.258 | - |
+| **KITTI to KITTI** | **Ours** | **0.759** | **1.111** | **10.2%** |
+| nuImages to nuImages | FlexiNet | 0.623 | 0.911 | - |
+| **nuImages to nuImages** | **Ours** | **0.413** | **0.617** | **33.6%** |
+| nuImages to KITTI | FlexiNet | 3.763 | 4.687 | - |
+| **nuImages to KITTI** | **Ours** | **1.413** | **1.980** | **62.4%** |
 
 ## Qualitative Videos
 
