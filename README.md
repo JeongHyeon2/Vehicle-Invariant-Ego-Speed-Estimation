@@ -31,6 +31,18 @@ the ground-truth range `0.5 <= speed < 20 m/s`.
 
 The proposed model reduces MAE by 27.0% and RMSE by 23.1% relative to FlexiNet.
 
+### Public Dataset Comparison
+
+The public-dataset experiments used random seed 42, 100 training epochs with
+data augmentation, and the full speed range of each test set. MAE and RMSE are
+reported in m/s.
+
+| Training to evaluation | FlexiNet MAE | FlexiNet RMSE | Ours MAE | Ours RMSE | MAE reduction |
+|---|---:|---:|---:|---:|---:|
+| KITTI to KITTI | 0.845 | 1.258 | **0.759** | **1.111** | **10.2%** |
+| nuImages to nuImages | 0.623 | 0.911 | **0.413** | **0.617** | **33.6%** |
+| nuImages to KITTI | 3.763 | 4.687 | **1.413** | **1.980** | **62.4%** |
+
 ## Qualitative Videos
 
 The following autoplay previews compare the ground-truth speed, FlexiNet
