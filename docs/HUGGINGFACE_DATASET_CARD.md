@@ -147,9 +147,9 @@ Each `packed_depthnorm64.pt` is a PyTorch dictionary containing:
 | `depth_rel64` | `(N, 1, 48, 86)` | `float16` | Relative inverse depth retained for historical compatibility |
 
 The final model reads `frames`, `flow_rate64`, and `speeds_mps` from the pack.
-Relative depth is not a model input; it is used only in the offline SmartROI
-construction. Each mask file contains `masks_u8` with shape `(N, 48, 86)` and
-dtype `uint8`.
+Relative inverse depth is not a model input; it is used only in the offline
+SmartROI construction. Each mask file contains `masks_u8` with shape
+`(N, 48, 86)` and dtype `uint8`.
 
 Public model-ready sequence names use the form
 `<vehicle_model>_<recording_number>`, such as `avante_01` and `carnival_03`.

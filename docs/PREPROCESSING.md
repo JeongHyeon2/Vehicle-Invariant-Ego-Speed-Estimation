@@ -179,7 +179,8 @@ This reproduces the full-resolution SmartROI path used by the final experiment:
 1. MiDaS DPT-Large estimates relative inverse depth.
 2. RAFT-Large estimates consecutive optical flow at `1920 x 1080`.
 3. Every center frame uses a clamped 13-frame context window.
-4. Relative-depth values between the 15th and 85th percentiles form the depth region.
+4. Relative inverse-depth values between the 15th and 85th percentiles form
+   the depth region.
 5. Mean flow magnitude and temporal flow consistency modulate the region.
 6. The soft mask is resized to `48 x 86` and stored as `uint8`.
 

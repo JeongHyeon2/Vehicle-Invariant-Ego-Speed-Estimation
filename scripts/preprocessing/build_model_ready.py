@@ -299,7 +299,7 @@ def write_dataset_metadata(root: Path, splits_path: Path, sequences: list[str]) 
         "release": "EgoSpeed model-ready 48x86 dataset",
         "clip_length": 13,
         "input_channels": ["grayscale", "raw_flow_u", "raw_flow_v"],
-        "smartroi_source": "MiDaS relative depth and RAFT flow at 1920x1080",
+        "smartroi_source": "MiDaS relative inverse depth and RAFT flow at 1920x1080",
         "depthnorm_input": False,
         "layout_version": 2,
         "sequence_naming": "<vehicle_model>_<recording_number>",

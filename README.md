@@ -11,8 +11,8 @@ paper.
 
 The method estimates ego-vehicle speed from 13-frame dashcam clips and is
 designed to generalize to vehicles that are not observed during training. It
-combines a FlexiNet backbone, SmartROI feature masking, and vehicle-adversarial
-disentanglement.
+combines the FlexiNet feature extractor up to the Dynamic Integration Gate
+(DIG), SmartROI feature masking, and vehicle-adversarial disentanglement.
 
 The repository includes the final model and training code plus five pretrained
 LOVO checkpoints for immediate evaluation. The model-ready dataset is
@@ -88,7 +88,7 @@ reported above and in the paper.
 
 - Clip: `13 x 3 x 48 x 86`
 - Channels: grayscale + raw optical-flow rates `(u, v)`
-- SmartROI: MiDaS relative depth + RAFT optical flow, generated offline
+- SmartROI: MiDaS relative inverse depth + RAFT optical flow, generated offline
 - Backbone: CMA -> AFT -> SFE/MFE -> DIG
 - Speed branch: SmartROI-masked feature, Res3D block, global average pooling
 - Vehicle branch: unmasked feature, Res3D block, global average pooling
@@ -96,8 +96,8 @@ reported above and in the paper.
 - Regression loss: SmoothL1
 - Orthogonality and HSIC losses: not used
 
-Depth-normalized flow is **not** an input to the final model. Relative depth is
-used only when constructing the precomputed SmartROI masks.
+Depth-normalized flow is **not** an input to the final model. Relative inverse
+depth is used only when constructing the precomputed SmartROI masks.
 
 ![Qualitative SmartROI examples](assets/smartroi_examples.png)
 
