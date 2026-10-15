@@ -54,7 +54,7 @@ and Ours.</i></sub>
 The following autoplay previews compare the ground-truth speed, FlexiNet
 prediction, and our prediction on unseen holdout vehicles. Click any preview to
 play the complete 15-second MP4. Error colors are green (`<= 1 m/s`), yellow
-(`1--2 m/s`), and red (`> 2 m/s`).
+(`1-2 m/s`), and red (`> 2 m/s`).
 
 The complete quantitative results are reported above and in the paper.
 
